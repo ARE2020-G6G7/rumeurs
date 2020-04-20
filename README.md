@@ -1,3 +1,3 @@
 # rumeurs
 
-Groupe G6G7 - Fazazi Zeid 
+Groupe G6G7 - Fazazi Zeid - Jean-Charles Kaing 
