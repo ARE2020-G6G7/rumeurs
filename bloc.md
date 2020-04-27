@@ -31,14 +31,19 @@ L'étude catégorise les différents types de personnes sous 3 statuts :
 - Les personnes inintéressées par la rumeur, qui n'y croient pas et ne la (re)partagent pas
 - Les personnes concernées par la rumeur, ils croient en la rumeur et repartagent celle-ci.
 - Les personnes croyants en la rumeur mais qui ne la partage pas.
+
 Ces statuts sont amenés à changer au fur et à mesure de la simulation
 Ce sont des vecteurs de l'informations. 
 Notre réseau social sera constitué de N personnes...
 
 Reformulation : 
+
 Problématique -> Pourquoi les fake news se propagent elles plus que les faits réels ?
+
 Hypothèse -> Les fake news touchent des domaines et centres d'intérets qui influencent et concernent le plus de monde. La déconstruction et le debunkage ne sont pas assez efficaces ou appliqués à toutes les fake news
+
 Objectif -> Expliquer la domination de la rumeur sur la vérité et refléchir à des pistes d'endiguement des fake news. 
+
 Critère d'évaluation -> Comparer la propagation de la vérité et de la rumeur, jusqu'à son debunkage.
 
 ### ...
