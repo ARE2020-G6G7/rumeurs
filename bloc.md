@@ -27,16 +27,17 @@ Ce phénomène se caractérise par 4 paramètres : Depth/Profondeur (La taille d
 https://www-sciencedirect-com.accesdistant.sorbonne-universite.fr/science/article/pii/S0020025520302565?#sec0008
 Un autre papier scientifique a attiré notre attention. Il présente un modèel de réseau social et de propagation de fake news basés autour de différentes équations et utilise notamment des notions plus complexes comme la théorie des bifurcations, la bifurcation  de Hopf...
 Ce qui est intéressant ici, c'est le réseau social et les personnes qui l'utilisent.
-L'étude catégorise les différents types de personnes sous 3 statuts : 
-- Les personnes inintéressées par la rumeur, qui n'y croient pas et ne la (re)partagent pas
-- Les personnes concernées par la rumeur, ils croient en la rumeur et repartagent celle-ci.
-- Les personnes croyants en la rumeur mais qui ne la partage pas.
+L'étude catégorise les personnes recepetives aux rumeurs (S) sous 3 statuts : 
+- Les personnes inintéressées par la rumeur, qui n'y croient pas et ne la (re)partagent pas (R)
+- Les personnes concernées par la rumeur, ils croient en la rumeur et repartagent celle-ci (I)
+- Les personnes croyants en la rumeur mais qui ne la partage pas (A)
 
 Ces statuts sont amenés à changer au fur et à mesure de la simulation
 Ce sont des vecteurs de l'informations. 
-Notre réseau social sera constitué de N personnes...
+Notre réseau social sera constitué de N personnes et l'ensembles des individus I,S,R et A constitutent ce réseau. Au début de la simulation leur nombre est supérieur ou égal à 0.  
 
-Reformulation : 
+AUssi, nous avons trouver des formules intéressantes à mettre en place pour nos simulations, qui font appel à différentes equations différentielles et à des taux de chace de propagation.
+Nous avons décider de les fixer arbitrairement suivant différents critères. Déjà, le type de rumeur, si elle est d'ordre politique, d'une legende urbaine etc... afin de déterminer si elle sera très partagées ou non. La véracité de la rumeur, si elle est facilement réfutable ou pas, si elle contient assez de sources et d'arguments solides. Enfin,....
 
 
 ### ...
