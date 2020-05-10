@@ -34,6 +34,58 @@ A travers quelques recherches sur google, nous avons pu trouver des sources prov
 
 Présentation du choix de modélisation, des outils, du code et des résultats (tableaux, courbes, animations...) (**avec une analyse critique**).
 
+En ligne, les individus peuvent être divisés en plusieurs catégories :
+N(t) : Ensemble des individus
+S(t) : Ensemble des individus confrontés aux rumeurs
+A(t) : Ensemble des individus croyants à la rumeur mais ne la partageant pas
+I(t) : Ensemble des individus croyants à la rumeur et la partageant
+R(t) : Ensemble des individus ne croyants pas à la rumeur et qui ne la partagent pas
+
+En ligne, la propagation d’une rumeur est très rapide. C’est pourquoi nous pouvant dire que son évolution est constante. N (t) Deviens donc B, qui est appelé « constante d’immigration ». B est également le nombre de personne susceptible de rencontrer une rumeur, car dans notre cas tout le monde l’est. Leur émigration en fonction du temps est représentée par μ, et le taux de transmissions entre individus susceptible est représenté par φ.
+θ1   représente la proportion des individus susceptible aux individus indiffèrent.
+θ2  représente la proportion des individus susceptible aux individus indiffèrent.
+Y est la proportion des individus des individus indiffèrent et des individus qui propagent les rumeurs qui se remettent en question et qui jugent l’information.
+Certains individus doivent garder le silence sur certaines informations, ce qui les forcent à croire l’information mais à ne pas la partager. Les individus qui propagent les rumeurs baisses donc par le facteur h(I) (par unité de temps).
+   Représente la fonction des gens qui sont forcer de garder le silence.
+
+ 
+
+Ce graphique représente la propagation d’une rumeur en fonction du type d’individus et des formules vu auparavant.
+Représentation de la propagation d’une rumeur :
+
+  Représente le nombre d’individus susceptibles à une rumeur par unité de temps.
+
+ Représente le nombre d’individus indifférents à une rumeur par unité de temps.
+
+  Représente le nombre d’individus qui propagent une rumeur par unité de temps.
+  Représente le nombre de personne qui remettent en question la rumeur.
+
+
+ 
+Les conditions initiales sont donc :
+
+ 
+Le nombre total d’individus est donc représenté par N(t) :
+
+ 
+
+Les formules qui viennent avec :
+	
+ 
+ 
+ 
+ 
+The positive variant set of system (?) :
+
+ 
+
+Comme A(t) et R(t) sont indépendants des équa diff de S(t) et I(t), nous pouvons donc changer ce systeme en :
+
+ 
+
+Avec  
+
+
 ## Lien vers page de blog : <a href="blog.html"> C'est ici ! </a>
 
 ## Bibliographie :
