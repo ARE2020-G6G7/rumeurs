@@ -21,57 +21,91 @@ def reseau_social(taille):
 
 # Première version de la fonction partage()
 def partage(Tuple, Teta1, Teta2, Gamma, Phi, B, Micro, c, d):
-    """tuple[list[list[int]]*int^5]*float^4*int*float*int^2->tuple[list[list[int]]*int^5]
-    retourne le réseau social prenant compte du partage d'une rumeur."""
+    """Tuple[list[int],int,int,int,int,int]*float*float*float*float*int*float*int*int->tuple[list[list[int]],int,int,int,int,int]
+    retourne un tuple composé du réseau social prenant compte du partage d'une rumeur et des nombres d'individus dans chaque groupe pour la durée d'un tour."""
     # RS: list[list[int]], S: int, A: int, I: int, R: int, h: int
     RS, S, A, I, R, h = Tuple
     
     # S1: int
     S1 = nbre_individu_S_1(B,Phi,I,Micro,S)
     # i: int
-    i = 0
-    # j: int
-    j = 0
-    while (i<S1 and j<B):
-        if (RS[j]==0):
-            RS[j]=1
-            i = i + 1
-        j = j + 1
+    i = S1
+    # RS_S: list[list[int]]
+    RS_S = []
+    # y: int
+    for y in range(0,len(RS)):
+        # L: list[int]
+        L = RS[y]
+        # x: int
+        for x in range(0,len(L)):
+            if (i!=0 and L[x]==0):
+                L[x]=1
+            i = i - 1
+        RS_S.append(L)
+            
     
     # A1: int
-    A1 = nbre_individu_A_2(Teta1,gamma,phi,micro,h,S,I,A)
+    A1 = nbre_individu_A_2(Teta1,Gamma,Phi,Micro,h,S,I,A)
     i = 0
-    j = 0
-    while (i<A1 and j<B):
-        if (RS[j]==1):
-            RS[j]=2
+    # RS_A: list[list[int]]
+    RS_A = []
+    for y in range(0,len(RS_S)):
+        # L: list[int]
+        L = RS_S[y]
+        # x: int
+        for x in range(0,len(L)):
+            if (i<A1 and L[x]==1):
+                L[x]=2
             i = i + 1
-        j = j + 1
+        RS_A.append(L)
     
     # I1: int
-    I1 = nbre_individu_I_3(Teta2,gamma,phi,micro,h,S,I)
+    I1 = nbre_individu_I_3(Teta2,Gamma,Phi,Micro,h,S,I)
     i = 0
-    j = 0
-    while (i<I1 and j<B):
-        if (RS[j]==1):
-            RS[j]=3
+    # RS_I: list[list[int]]
+    RS_I = []
+    for y in range(0,len(RS_A)):
+        # L: list[int]
+        L = RS_A[y]
+        # x: int
+        for x in range(0,len(L)):
+            if (i<I1 and L[x]==1):
+                L[x]=3
             i = i + 1
-        j = j + 1
+        RS_I.append(L)
     
     # R1: int
-    R1 = nbre_individu_R_4(Teta1,Teta2,gamma,phi,micro,S,A,I,R)
+    R1 = nbre_individu_R_4(Teta1,Teta2,Gamma,Phi,Micro,S,A,I,R)
     i = 0
-    j = 0
-    while (i<1 and j<B):
-        if (RS[j]==1):
-            RS[j]=4
+    # RS_R: list[list[int]]
+    RS_R = []
+    for y in range(0,len(RS_I)):
+        # L: list[int]
+        L = RS_I[y]
+        # x: int
+        for x in range(0,len(L)):
+            if (i<R1 and L[x]==1):
+                L[x]=4
             i = i + 1
-        j = j + 1
+        RS_R.append(L)
     
     # h1: int
     h1 = fonction_h(c,d,I)
+
+    # L: list[list[int]]
+    L=[]
+    # b: int
+    for b in range(0,len(RS_R)):
+        #Lbis : list[int]
+        Lbis = []
+        #Lter : list[int]
+        Lter = RS_R[b]
+        #a : int
+        for a in range(0,len(RS_R)):
+            Lbis.append(Lter[a])
+        L.append(Lbis)
     
-    return (RS, S, A, I, R, h)
+    return (L, S1, A1, I1, R1, h1)
 
 #Visulisation du réseau social
 def plot_world(world):
@@ -98,7 +132,7 @@ def nbre_individu_A_2(Teta1,gamma,phi,micro,h,S,I,A): #(Teta1,gamma,phi,micro,h,
 
     #I = Individu croyant/partageant la rumeur, représenté par un 3 dans le réseau social
 def nbre_individu_I_3(Teta2,gamma,phi,micro,h,S,I):
-    """float^4*int*3->int
+    """float^4*int^3->int
     retourne le nombre d'individus I croyant et partageant la rumeur."""
     return int(Teta2*phi*S*I - gamma*I - h + micro*I)
 
