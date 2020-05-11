@@ -25,7 +25,7 @@ Ce phénomène se caractérise par 4 paramètres : Depth/Profondeur (La taille d
 
 ### Semaine 3
 https://www-sciencedirect-com.accesdistant.sorbonne-universite.fr/science/article/pii/S0020025520302565?#sec0008
-Un autre papier scientifique a attiré notre attention. Il présente un modèel de réseau social et de propagation de fake news basés autour de différentes équations et utilise notamment des notions plus complexes comme la théorie des bifurcations, la bifurcation  de Hopf...
+Un autre papier scientifique a attiré notre attention. Il présente un modèl de réseau social et de propagation de fake news basés autour de différentes équations et utilise notamment des notions plus complexes comme la théorie des bifurcations, la bifurcation  de Hopf...
 Ce qui est intéressant ici, c'est le réseau social et les personnes qui l'utilisent.
 L'étude catégorise les personnes recepetives aux rumeurs (S) sous 3 statuts : 
 - Les personnes inintéressées par la rumeur, qui n'y croient pas et ne la (re)partagent pas (R)
@@ -36,11 +36,27 @@ Ces statuts sont amenés à changer au fur et à mesure de la simulation
 Ce sont des vecteurs de l'informations. 
 Notre réseau social sera constitué de N personnes et l'ensembles des individus I,S,R et A constitutent ce réseau. Au début de la simulation leur nombre est supérieur ou égal à 0.  
 
-AUssi, nous avons trouver des formules intéressantes à mettre en place pour nos simulations, qui font appel à différentes equations différentielles et à des taux de chace de propagation.
-Nous avons décider de les fixer arbitrairement suivant différents critères. Déjà, le type de rumeur, si elle est d'ordre politique, d'une legende urbaine etc... afin de déterminer si elle sera très partagées ou non. La véracité de la rumeur, si elle est facilement réfutable ou pas, si elle contient assez de sources et d'arguments solides. Enfin,....
+Aussi, nous avons trouver des formules intéressantes à mettre en place pour nos simulations, qui font appel à différentes equations différentielles et à des taux de chance de propagation.
+Nous avons décider de les fixer arbitrairement suivant différents critères. Déjà, le type de rumeur, si elle est d'ordre politique, d'une legende urbaine etc... afin de déterminer si elle sera très partagées ou non. La véracité de la rumeur, si elle est facilement réfutable ou pas, si elle contient assez de sources et d'arguments solides.
 
 
-### ...
+### Semaine 5
 
-bonjour
+L'étude précédente proposait une simulation qui définissait les différents rôles cités ci-dessus (I, S, R, A et N), mais définissait également différents facteurs qui représentent les constantes de simulation. Les facteurs de propagation des rumeurs dans ce modèle sont:
+
+- La probabilité d'être confronté à une rumeur (B)
+- Le taux de transmission de la rumeur (φ)
+- La probabilite de changer de rôle (μ)
+- Le taux de chance d'une transition (γ)
+- La proportion d'individus sensibles par rapport aux individus indifférents (θ1)
+- La proportion d'individus sensibles par rapport aux individus qui se propagent (θ2)
+- La mesure d'efficacité (d)
+- Le nombre maximum d'internautes gardant le silence (c)
+- Le nombre de transition "debunkeur" (h)
+
+Basé sur le fait du mécanisme de propagation de la rumeur, B , φ, μ, γ, c, d sont tous des constantes positive.
+Il est important de preciser qu'au debut de la simulation tout les individus sont "S" sauf un seul qui est "I" car il doit commencer à propager la rumeur.
+
+
+
 <a href="index.html"> Retour à la page principale </a>
