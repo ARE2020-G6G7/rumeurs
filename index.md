@@ -1,8 +1,8 @@
 # Les rumeurs et leur propagation dans les réseaux sociaux
 
-Les rumeurs sont largement diffusées à travers nos canaux d’information, ce sont des infos, des rumeurs créées par un (groupe d’) individu dans le but de fausser la réalité et manipuler les croyances et l’avis du public visé, en faveur d’une opinion, d’un lobby ou d’un champ politique. Si très relayées, ces rumeurs peuvent atteindre les hautes sphères du journalisme, et peuvent être servir à la rédaction d’articles officiels.
+Les rumeurs sont largement diffusées par nos canaux d'information. Ce sont des infos et des rumeurs créées par (un groupe d')individus. Leur but est de déformer la réalité et de manipuler les croyances, les opinions, un lobby ou les domaines politiques du public attendu. Si elles sont largement diffusées, ces rumeurs peuvent atteindre le plus haut niveau de l'actualité et peuvent être utilisées pour écrire des articles officiels.
 
-Notre projet de recherche documentaire consiste en l’étude de la propagation des fake news et des facteurs favorisant leur large diffusion, comparées aux informations véridiques et vérifiées. Il est notamment nécessaire de simuler un réseau social comme Twitter et de voir comment l'information se transmet d'une personne à une autre
+ Nos projets de recherche documentaire comprennent l'étude de la propagation de fausses nouvelles et des facteurs qui facilitent leur diffusion à grande échelle, comparées aux informations véridiques et vérifiées. En particulier, il est nécessaire de simuler un réseau social comme Twitter et de voir comment les informations sont transférées d'une personne à une autre.
 
 
 ## Spreading of Fake-News sociaux
@@ -16,8 +16,9 @@ Our project is to study the spreading of fake news, fin the factor that helps th
 
 
 ## Description synthétique du projet
-> Nos recherches ont mis en exergue 3 grands thèmes et mots clés : la Propagation, les Influences et le débunkage, la lutte contre ces news.
-A travers quelques recherches sur google, nous avons pu trouver des sources provenant de sites d’actualités réputés, des travaux de chercheurs se basant sur des sources sûres et divers blogueurs partageant leur connaissance sur le sujet. Evidemment les propos de ces derniers sont pris avec un peu de méfiance et d’attention. Cela nous a permis de révéler les mots clés revenant le plus souvents de ces recherches. Aussi, nous avons eu la chance de tomber sur beaucoup infographies et de statistiques sur le sujet qui aideront dans la modélisation du phénomène de propagation des Fake-News.
+> Notre recherche met en évidence trois thèmes et mots clés principaux: la propagation, l'influence et le debunkage, la lutte contre ces news. Grâce à certaines recherches sur Google, nous avons trouver des sources provenant de sites d'actualités bien connus, du travail de chercheurs basés sur des sources fiables et divers blogueurs qui partagent leurs connaissances sur le sujet. Évidemment, le discours de ce dernier porte un peu de méfiance et d'attention. Cela nous permet de révéler les mots clés les plus fréquemment renvoyés dans ces recherches. De plus, nous sommes très chanceux d'avoir rencontré de nombreuses infographies et statistiques sur ce sujet, qui aideront à modéliser la propagation des fausses nouvelles.
+
+
 
 **Problématique :**Pourquoi les fake news se propagent elles plus que les faits réels ?
 
@@ -58,6 +59,7 @@ Représentation de la propagation d’une rumeur :
  Représente le nombre d’individus indifférents à une rumeur par unité de temps.
 
   Représente le nombre d’individus qui propagent une rumeur par unité de temps.
+  
   Représente le nombre de personne qui remettent en question la rumeur.
 
 
