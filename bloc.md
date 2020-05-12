@@ -4,20 +4,21 @@
 
 ### Semaine 1(6 - 12/04)
 Pour répondre au feedback laissé suite à la remise de la présentation du projet, certains éléments de réponse se trouvent dans le """carnet de bord""" que j'ai envoyé le 31 mars à M.Prost. 
-- A travers la question du "Comment limiter au maximum", nous nous etions donner pour but de trouver le moyen de communication le plus diffuseur d'intox afin de juger les moyens à déployer pour limiter le phénomène au sein de ce canal d'information. On s'est rapidement rendu compte qu'Internet était à l'origine  d'une grande partie des affaires traitant de fake news. La réponse étant assez evidende, l'étude n'aurait aucun interet à être mener, le caractère dynamique de l'étude n'est pas très bien défini aussi. Une problématique plus pertinente à creuser serait de savoir 
+- A travers la question de "comment limiter au maximum", nous nous sommes fixé pour objectif de trouver la méthode de communication qui peut propager le plus d'intox afin de déterminer la méthode de communication qui restreint l'utilisation de ce phénomène dans ce canal d'information. Nous avons rapidement réalisé qu'Internet est la source de la plupart des affaires traitant de fake news.
 
-- Nous avions envisager à la base de mettre en comparaison plusieurs moyens de communications tel que la Télévision, la Radio, Internet et le bouche à oreille. Néanmoins nous avons juger meilleur de garder Internet et les réseaux sociaux. En effet, l'essor de ce phénomène s'est fait en grande partie par le biais des réseaux sociaux qui facilitent la diffusion à grande ampleur de ces rumeurs.
+- Nous avions initialement prévu de comparer plusieurs méthodes de communication, telles que la télévision, la radio, Internet et le bouche à oreille. Cependant, nous pensons qu'il vaut mieux garder Internet et les réseaux sociaux. En effet, le développement de ce phénomène se fait principalement à travers les réseaux sociaux qui favorise la diffusion généralisée de ces rumeurs.
 
 - Nous comptions nous fier sur les études et données envoyées dans le "carnet de bord", qui contient différentes infographies et statisques permettant de dresser et définir certains coefficient et chiffres intéressants pour notre étude. Elle se focalisera du coup sur un seul réseau social dans le quel on considère un groupe d'individus se partageant des tweets, des informations,etc...  
-Pour déterminer les coefficients de propagation, on s'interesse à 3 paramètres : la plausibilité de la fake news, le contexte actuel et la crédulité du public touché. Certains sont repris d'un papier scitifique publié par des chercheurs du MIT : https://science.sciencemag.org/content/359/6380/1146. 
+Afin de déterminer le coefficient de propagation, nous nous intéressons à trois paramètres: la rationalité des fake news, la situation actuelle et la crédulité du public concerné. Certains d'entre eux sont extraits d'articles scientifiques publiés par des chercheurs du MIT:
+ https://science.sciencemag.org/content/359/6380/1146. 
 Ce sont des paramètres que  l'on fixe au début de la simultation et qui tendent à évoluer au fur à mesure du phénomène.
 
-- En effet, les objectifs et la démarche ne cohèrent pas avec les objectifs de l'UE. Nos recherches doivent mener à la determination de coefficient de propagation en fonction de différents facteurs afin de dresser ces simulations. Une 
+- En effet, les objectifs et la démarche ne cohèrent pas avec les objectifs de l'UE. Nos recherches doivent mener à la determination de coefficient de propagation en fonction de différents facteurs afin de dresser ces simulations. 
 
 ### Semaine 2
 Le papier scientifique publié par les chercheurs du MIT (B) se revèle être très enrichissant et interessant pour notre projet, notamment quant à la quantification des caractéristiques d'une rumeur. On se place ici dans le réseau social Twitter pour le contexte.
 
-Notamment, l'étude catégorise et classe les centres d'intérêts qui suscitent le plus d'intéractions et d'échanges de Fake News. La politique et les légendes urbaines sont des sujets très abordées par ces rumeurs et ont davantage de facilités à circuler à un grand nombre de personnes. En effet, le debunkage de ces nouvelles sont moins évidentes à faire car nécessite de confronter plusieurs sources avec précaution, surtout pour la politique, si tant est qu'elles existent.
+En particulier, l'étude a classé et catégorisé les centres d'intérêt qui ont généré le plus d'interaction et de communication avec des Fake News. La politique et les légendes urbaines sont les thèmes impliqués dans ces rumeurs et se propagent à plus de gens en moins de temps. En effet, démystifier ces nouvelles n'est pas si facile, car elle doit être prudente face à de multiples sources, notamment pour la politique (si elle existe).
 
 Aussi, le papier décrit le terme de "Rumor Cascades" qui correspond au parcours de la rumeur, de sa création/publication jusqu'au momne toù elle n'est pas plus propagée, en passant par un long processus de (re)partage entre utilisateurs. 
 

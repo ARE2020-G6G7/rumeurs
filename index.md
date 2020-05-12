@@ -2,7 +2,7 @@
 
 Les rumeurs sont largement diffusées par nos canaux d'information. Ce sont des infos et des rumeurs créées par (un groupe d')individus. Leur but est de déformer la réalité et de manipuler les croyances, les opinions, un lobby ou les domaines politiques du public attendu. Si elles sont largement diffusées, ces rumeurs peuvent atteindre le plus haut niveau de l'actualité et peuvent être utilisées pour écrire des articles officiels.
 
- Nos projets de recherche documentaire comprennent l'étude de la propagation de fausses nouvelles et des facteurs qui facilitent leur diffusion à grande échelle, comparées aux informations véridiques et vérifiées. En particulier, il est nécessaire de simuler un réseau social comme Twitter et de voir comment les informations sont transférées d'une personne à une autre.
+ Nos projets de recherche documentaire comprennent l'étude de la propagation de fake news et des facteurs qui facilitent leur diffusion à grande échelle, comparées aux informations véridiques et vérifiées. En particulier, il est nécessaire de simuler un réseau social comme Twitter et de voir comment les informations sont transférées d'une personne à une autre.
 
 
 ## Spreading of Fake-News sociaux
@@ -16,7 +16,7 @@ Our project is to study the spreading of fake news, fin the factor that helps th
 
 
 ## Description synthétique du projet
-> Notre recherche met en évidence trois thèmes et mots clés principaux: la propagation, l'influence et le debunkage, la lutte contre ces news. Grâce à certaines recherches sur Google, nous avons trouver des sources provenant de sites d'actualités bien connus, du travail de chercheurs basés sur des sources fiables et divers blogueurs qui partagent leurs connaissances sur le sujet. Évidemment, le discours de ce dernier porte un peu de méfiance et d'attention. Cela nous permet de révéler les mots clés les plus fréquemment renvoyés dans ces recherches. De plus, nous sommes très chanceux d'avoir rencontré de nombreuses infographies et statistiques sur ce sujet, qui aideront à modéliser la propagation des fausses nouvelles.
+> Notre recherche met en évidence trois thèmes et mots clés principaux: la propagation, l'influence et le debunkage, la lutte contre ces news. Grâce à certaines recherches sur Google, nous pouvons trouver des sources provenant de sites d'actualités bien connus, de travail de chercheurs basés sur des sources fiables et divers blogueurs qui partagent leurs connaissances sur le sujet. Évidemment, le discours de ce dernier porte un peu de méfiance et d'attention. Cela nous permet de révéler les mots clés les plus fréquemment renvoyés dans ces recherches. De plus, nous sommes très chanceux d'avoir rencontré de nombreuses infographies et statistiques sur ce sujet, qui aideront à modéliser la propagation des fake news.
 
 
 
