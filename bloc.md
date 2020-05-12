@@ -3,7 +3,7 @@
 => Description hebdomadaire du travail effectué (variez les auteurs !)
 
 ### Semaine 1(6 - 12/04)
-Pour répondre au feedback laissé suite à la remise de la présentation du projet, certains éléments de réponse se trouvent dans le """carnet de bord""" que j'ai envoyé le 31 mars à M.Prost. 
+Pour répondre au feedback laissé suite à la remise de la présentation du projet, certains éléments de réponse se trouvent dans le """carnet de bord""" que j'ai envoyé le 31 mars à M.Prost.  
 - A travers la question de "comment limiter au maximum", nous nous sommes fixé pour objectif de trouver la méthode de communication qui peut propager le plus d'intox afin de déterminer la méthode de communication qui restreint l'utilisation de ce phénomène dans ce canal d'information. Nous avons rapidement réalisé qu'Internet est la source de la plupart des affaires traitant de fake news.
 
 - Nous avions initialement prévu de comparer plusieurs méthodes de communication, telles que la télévision, la radio, Internet et le bouche à oreille. Cependant, nous pensons qu'il vaut mieux garder Internet et les réseaux sociaux. En effet, le développement de ce phénomène se fait principalement à travers les réseaux sociaux qui favorise la diffusion généralisée de ces rumeurs.
