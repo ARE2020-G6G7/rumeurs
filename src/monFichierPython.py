@@ -1,28 +1,13 @@
 # Fichier Python sur les rumeurs
-import pyplot as plt
+import random
+from matplotlib import pyplot as plt
+import numpy as np
 # Pour modéliser la propagation de rumeurs sur un réseau social, on considère un monde composé d'individus réceptives à la rumeurs, dites S.
 # Pour créer ce monde, on choisit d'utiliser une fonction reseau_social() qui prend en paramètre un entier taille et qui renvoit une liste de liste de 0 afin de créer un monde spatial par la suite(à voir)
 # Le chiffre 1 correspond à une personne S, tous les individus sont de type S au tout début
 
-#Quand t=0, S = B, A = I = R = 0
-def reseau_social(taille):
-    """int->list[list[int]]
-    retourne une liste représentant un réseau social et ses internautes."""
-    # L: list[list[int]]
-    L=[]
-    # i: int
-    for i in range(0,taille):
-        #Lbis : list[int]
-        Lbis = []
-        #j : int
-        for j in range(0,taille):
-            if(i==0 and j==0):
-                Lbis.append(3)
-            else:
-                Lbis.append(1)
-        L.append(Lbis)
-    return L
-
+#Quand t=0, S et I > 0, A = R = 0
+reseau_social = np.array([[3,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1]])
 
 def comptage(world,categorie_individus):
     """list[list[int]]*int->int
@@ -121,14 +106,14 @@ def actualisation_reseau(c):
             R = R_mem
     print("Fin de simulation")
 
-actualisation_reseau(141)
+#actualisation_reseau(141)
 
 def partage(Tuple, Teta1, Teta2, Gamma, Phi, B, Micro, c, d):
     """tuple[list[int],int,int,int,int,int]*Number*Number*Number*Number*int*Number*int*int->tuple[list[list[int]],int,int,int,int,int]
     retourne un tuple composé du réseau social prenant compte du partage d'une rumeur et des nombres d'individus dans chaque groupe pour la durée d'un tour."""
     # RS: list[list[int]], S: int, A: int, I: int, R: int, h: int
     RS, S, A, I, R, h = Tuple
-    
+
     # S1: int
     S1 = int(nbre_individu_S_1(B,S,I,Micro,Phi))
     # i: int
@@ -145,8 +130,8 @@ def partage(Tuple, Teta1, Teta2, Gamma, Phi, B, Micro, c, d):
                 L[x]=1
                 i = i + 1
         RS_S.append(L)
-            
-    
+
+
     # A1: int
     A1 = int(nbre_individu_A_2(Teta1,Gamma,Phi,Micro,h,S,A,I))
     i = 0
@@ -161,7 +146,7 @@ def partage(Tuple, Teta1, Teta2, Gamma, Phi, B, Micro, c, d):
                 L[x]=2
                 i = i + 1
         RS_A.append(L)
-    
+
     # I1: int
     I1 = int(nbre_individu_I_3(Teta2,Gamma,Phi,Micro,h,S,I))
     i = 0
@@ -176,7 +161,7 @@ def partage(Tuple, Teta1, Teta2, Gamma, Phi, B, Micro, c, d):
                 L[x]=3
                 i = i + 1
         RS_I.append(L)
-    
+
     # R1: int
     R1 = int(nbre_individu_R_4(Teta1,Teta2,Gamma,Phi,Micro,S,A,I,R))
     # i: int
@@ -192,7 +177,7 @@ def partage(Tuple, Teta1, Teta2, Gamma, Phi, B, Micro, c, d):
                 L[x]=4
                 i = i + 1
         RS_R.append(L)
-    
+
     # h1: int
     h1 = int(fonction_h(c,d,I))
 
@@ -208,10 +193,10 @@ def partage(Tuple, Teta1, Teta2, Gamma, Phi, B, Micro, c, d):
         for a in range(0,len(RS_R)):
             Lbis.append(Lter[a])
         L.append(Lbis)
-    
+
     return (L, S1, A1, I1, R1, h1)
 
-partage((reseau_social(10),35,0,1,0,fonction_h(1,0,1)), 0.2, 0.7, 0.3, 0.4, 100, 0.5, 1, 1)
+#partage((reseau_social(10),35,0,1,0,fonction_h(1,0,1)), 0.2, 0.7, 0.3, 0.4, 100, 0.5, 1, 1)
 
 def partage_tour(Tuple, Teta1, Teta2, Gamma, Phi, B, Micro, c, d, tour):
     """tuple[list[int],int,int,int,int,int]*Number*Number*Number*Number*int*Number*int*int*int->tuple[list[list[int]],int,int,int,int,int]
@@ -223,4 +208,8 @@ def partage_tour(Tuple, Teta1, Teta2, Gamma, Phi, B, Micro, c, d, tour):
         T = partage(T, Teta1, Teta2, Gamma, Phi, B, Micro, c, d)
     return T
 
-partage_tour((reseau_social(10),35,0,1,0,fonction_h(1,0,1)), 0.2, 0.7, 0.3, 0.4, 100, 0.5, 1, 1, 5)
+#partage_tour((reseau_social(10),35,0,1,0,fonction_h(1,0,1)), 0.2, 0.7, 0.3, 0.4, 100, 0.5, 1, 1, 5)
+
+#Nouveau modèle
+
+print(reseau_social[0,0])
