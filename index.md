@@ -47,20 +47,21 @@ En ligne, la propagation d’une rumeur est très rapide. C’est pourquoi nous 
 θ2  représente la proportion des individus susceptible aux individus indiffèrent.
 Y est la proportion des individus des individus indiffèrent et des individus qui propagent les rumeurs qui se remettent en question et qui jugent l’information.
 Certains individus doivent garder le silence sur certaines informations, ce qui les forcent à croire l’information mais à ne pas la partager. Les individus qui propagent les rumeurs baisses donc par le facteur h(I) (par unité de temps).
-   Représente la fonction des gens qui sont forcer de garder le silence.
+Représente la fonction des gens qui sont forcer de garder le silence.
 
- 
 
 Ce graphique représente la propagation d’une rumeur en fonction du type d’individus et des formules vu auparavant.
+
+
 Représentation de la propagation d’une rumeur :
 
-  Représente le nombre d’individus susceptibles à une rumeur par unité de temps.
+Représente le nombre d’individus susceptibles à une rumeur par unité de temps.
 
- Représente le nombre d’individus indifférents à une rumeur par unité de temps.
+Représente le nombre d’individus indifférents à une rumeur par unité de temps.
 
-  Représente le nombre d’individus qui propagent une rumeur par unité de temps.
+Représente le nombre d’individus qui propagent une rumeur par unité de temps.
   
-  Représente le nombre de personne qui remettent en question la rumeur.
+Représente le nombre de personne qui remettent en question la rumeur.
 
 
  
