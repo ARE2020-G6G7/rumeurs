@@ -1,6 +1,7 @@
 import random
 from matplotlib import pyplot as plt
 import numpy as np
+import copy
 
 # Pour modéliser la propagation de rumeurs sur un réseau social, on considère un monde composé d'individus réceptives à la rumeurs, dites S.
 # Le chiffre 1 correspond à une personne S, tous les individus sont de type S au tout début
@@ -57,26 +58,44 @@ def fonction_h(reseau,biais):
         return False
 #FAIRE UNE FONCTION QUI MANIPULE L'ALEATOIRE ET QUI RETOURNE SOIT 2 3 OU 4 SELON LE CHIFFRE QUI TOMBE ET LES PROBAS TETA1 et TETA2
 def choix(Teta1,Teta2):
-
+    #T1 : int
+    T1 = Teta1* 10
+    #T2 : int
+    T2 = Teta2*10 + T1
+    Choix = np.random.choice(10,1,0.1)
+    if Choix[0]<T1:
+        return 3
+    if Choix[0]>=T1 and Choix[0]<T2:
+        return 2
+    else:
+        return 4
 def partage(reseau,phi,micro,gamma,Teta1,Teta2):
     """ list[list[int]]*float**6 -> list[list[int]]
         0<phi<1 and 0<micro<1 and 0<gamma<1 and 0<Teta1<1 and 0<Teta2<1
         retourne le monde après une periode t de partage de la rumeur """
-    #L : int
-    L = len(reseau[0,0])
     #i : int
-    for i in range(0,L):
+    for i in range(0,6):
         #j : int
-        for j in range(0,L):
+        for j in range(0,6):
             if reseau[i,j]==1:
                 L_phi = np.random.choice(2,1,phi)
                 if(L_phi[0]==1):
                     h = fonction_h(reseau,0.5)
                     L_micro = np.random.choice(2,1,micro)
-                    if(h==True and L_micro[0]==1)
-                    #Continuer la fonction
-            if reseau[i,j]==2 or reseau[i,j]==3:
+                    if h==True and L_micro[0]==1:
+                        reseau[i,j]== Choix(Teta1,Teta2)
+            if (reseau[i,j]==2 or reseau[i,j]==3) and i+j!=0:
                 L_gamma = np.random.choice(2,1,gamma)
-                if(L_gamma[0]==1):
+                if(L_gamma[0]==1 ):
                     reseau[i,j]=4
     return reseau
+
+def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
+    #twitter : list[list[int]]
+    twitter = copy.copy(reseau)
+    #i : int
+    for i in range(0,nbre_tour):
+        twitter = partage(twitter, phi, micro, gamma, Teta1, Teta2)
+    return twitter
+
+plot_world(partage(reseau_social, Phi, Micro, Gamma, Teta1, Teta2))
