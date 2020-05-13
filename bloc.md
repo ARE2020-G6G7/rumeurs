@@ -59,5 +59,18 @@ Basé sur le fait du mécanisme de propagation de la rumeur, B , φ, μ, γ, c, 
 Il est important de preciser qu'au debut de la simulation tout les individus sont "S" sauf un seul qui est "I" car il doit commencer à propager la rumeur.
 
 
+### Semaine 6
+Après s'être aperçu que la simulation basée sur l'étude précédente donnait non seulement des valeurs négatives pour les catégories d'induvidus mais aussi sortait des limites du réseau, nous avons décidé de revoir notre code.
+
+On considérera que tous les individus interagissent entre eux et qu'ils appartiennent à la catégorie S des personnes susceptibles à la rumeur. 
+
+En utilisant les différentes variables, constantes, probabilités à notre disposition et en faisant appel à random, on va parcourir une matrice avec une probabilité φ qu'une personne perçoive la rumeur. Ensuite, l'individu aura une probabilité μ de changer de rôle. Enfin, on prend en compte les probas θ1, θ2 et 1-θ1-θ2 pour determiner vers quel rôle il va transiter.
+
+En ce qui concerne la fonction h, elle va servir de seuil de cohérence. On va considérer le voisinage de l'individu, s'il y a plus de la moitié de son entourage qui est de type R ou A, il devient R, sinon I.
+
+Ainsi, on revient aux objectifs initiaux qui étaient de déteminer les constantes de propagation, que l'on fixera arbitrairement selon les types d'informations.
+
+
+
 
 <a href="index.html"> Retour à la page principale </a>
