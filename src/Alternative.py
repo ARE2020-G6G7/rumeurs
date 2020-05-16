@@ -33,7 +33,7 @@ def plot_world(world):
     retourne le monde."""
     A = world
     plt.figure(figsize=(15,12)) # (30,30) = Taille de la figure
-    plt.imshow(A,cmap='tab10')
+    plt.imshow(A,cmap='viridis')
     plt.tick_params(top=False, bottom=False, right=False, left=False, labelleft=False, labelbottom=False)
     plt.show()
 
@@ -69,6 +69,8 @@ def choix(Teta1,Teta2):
         return 2
     else:
         return 4
+
+
 def partage(reseau,phi,micro,gamma,Teta1,Teta2):
     """ list[list[int]]*float**6 -> list[list[int]]
         0<phi<1 and 0<micro<1 and 0<gamma<1 and 0<Teta1<1 and 0<Teta2<1
@@ -98,4 +100,4 @@ def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
         twitter = partage(twitter, phi, micro, gamma, Teta1, Teta2)
     return twitter
 
-plot_world(partage(reseau_social, Phi, Micro, Gamma, Teta1, Teta2))
+print(choix(Teta1, Teta2))
