@@ -75,21 +75,22 @@ def partage(reseau,phi,micro,gamma,Teta1,Teta2):
     """ list[list[int]]*float**6 -> list[list[int]]
         0<phi<1 and 0<micro<1 and 0<gamma<1 and 0<Teta1<1 and 0<Teta2<1
         retourne le monde après une periode t de partage de la rumeur """
-    #i : int
+    #L : list[int]
     for i in range(0,6):
-        #j : int
+        #i : int
         for j in range(0,6):
-            if reseau[i,j]==1:
+            if L[i,j]==1:
                 L_phi = np.random.choice(2,1,phi)
                 if(L_phi[0]==1):
                     h = fonction_h(reseau,0.5)
                     L_micro = np.random.choice(2,1,micro)
-                    if h==True and L_micro[0]==1:
-                        reseau[i,j]== Choix(Teta1,Teta2)
-            if (reseau[i,j]==2 or reseau[i,j]==3) and i+j!=0:
-                L_gamma = np.random.choice(2,1,gamma)
-                if(L_gamma[0]==1 ):
-                    reseau[i,j]=4
+                    if L_micro[0]==1:
+                        L[i,j]== choix(Teta1,Teta2)
+            else:
+                if (L[i,j]==2 or L[i,j]==3) and i+j!=0:
+                    L_gamma = np.random.choice(2,1,gamma)
+                    if(L_gamma[0]==1 ):
+                        L[i,j]=4
     return reseau
 
 def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
@@ -100,4 +101,4 @@ def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
         twitter = partage(twitter, phi, micro, gamma, Teta1, Teta2)
     return twitter
 
-print(choix(Teta1, Teta2))
+print(partage(reseau_social, Phi, Micro, Gamma, Teta1, Teta2))
