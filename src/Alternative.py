@@ -79,18 +79,18 @@ def partage(reseau,phi,micro,gamma,Teta1,Teta2):
     for i in range(0,6):
         #i : int
         for j in range(0,6):
-            if L[i,j]==1:
+            if reseau[i,j]==1:
                 L_phi = np.random.choice(2,1,phi)
                 if(L_phi[0]==1):
                     h = fonction_h(reseau,0.5)
                     L_micro = np.random.choice(2,1,micro)
                     if L_micro[0]==1:
-                        L[i,j]== choix(Teta1,Teta2)
+                        reseau[i,j]== choix(Teta1,Teta2)
             else:
-                if (L[i,j]==2 or L[i,j]==3) and i+j!=0:
+                if (reseau[i,j]==2 or reseau[i,j]==3) and i+j!=0:
                     L_gamma = np.random.choice(2,1,gamma)
                     if(L_gamma[0]==1 ):
-                        L[i,j]=4
+                        reseau[i,j]=4
     return reseau
 
 def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
