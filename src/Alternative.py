@@ -7,7 +7,7 @@ import copy
 # Le chiffre 1 correspond à une personne S, tous les individus sont de type S au tout début
 
 #Quand t=0, S et I > 0, A = R = 0
-reseau_social = np.array([[3,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1]])
+reseau_social = [[3,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1]]
 
 #On considère une rumeur politique, très relayée dans les réseaux sociaux selon nos recherches et expériences personnelles
 
@@ -36,6 +36,10 @@ def plot_world(world):
     plt.imshow(A,cmap='viridis')
     plt.tick_params(top=False, bottom=False, right=False, left=False, labelleft=False, labelbottom=False)
     plt.show()
+#Individu S = Mauve
+#Individu A = Bleu
+#Individu I = Vert
+#Individu R = Jaune
 
 def fonction_h(reseau,biais):
     """ list[list[int]]*int -> bool
@@ -75,23 +79,27 @@ def partage(reseau,phi,micro,gamma,Teta1,Teta2):
     """ list[list[int]]*float**6 -> list[list[int]]
         0<phi<1 and 0<micro<1 and 0<gamma<1 and 0<Teta1<1 and 0<Teta2<1
         retourne le monde après une periode t de partage de la rumeur """
-    #L : list[int]
-    for i in range(0,6):
-        #i : int
-        for j in range(0,6):
-            if reseau[i,j]==1:
+    #LR : list[list[int]]
+    LR = []
+    for Ligne in range(0,6):
+        LR.append([])
+        L1 = LR[Ligne]
+        L2 = reseau[Ligne]
+        for Colonne in range(0,6):
+            L1.append(L2[Colonne])
+            if L2[Colonne]==1:
                 L_phi = np.random.choice(2,1,phi)
                 if(L_phi[0]==1):
                     h = fonction_h(reseau,0.5)
                     L_micro = np.random.choice(2,1,micro)
-                    if L_micro[0]==1:
-                        reseau[i,j]== choix(Teta1,Teta2)
+                    if L_micro[0]==1 or h==True:
+                        L1[Colonne]=choix(Teta1,Teta2)
             else:
-                if (reseau[i,j]==2 or reseau[i,j]==3) and i+j!=0:
+                if (L2[Colonne]==2 or L2[Colonne]==3) and Ligne+Colonne!=0:
                     L_gamma = np.random.choice(2,1,gamma)
-                    if(L_gamma[0]==1 ):
-                        reseau[i,j]=4
-    return reseau
+                    if(L_gamma[0]==1):
+                        L1[Colonne]=4
+    return LR
 
 def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
     #twitter : list[list[int]]
@@ -101,4 +109,29 @@ def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
         twitter = partage(twitter, phi, micro, gamma, Teta1, Teta2)
     return twitter
 
-print(partage(reseau_social, Phi, Micro, Gamma, Teta1, Teta2))
+def Viralite(reseau):
+    nbre_de_S = 0
+    tot = 0
+    for L in reseau:
+        for i in L:
+            tot =+ 1
+            if(L[i]==1):
+                nbre_de_S =+ 1
+    return (tot - nbre_de_S)/tot
+
+def Taille(reseau):
+    nbre_de_S = 0
+    tot = 0
+    for L in reseau:
+        for i in L:
+            tot =+ 1
+            if(L[i]==1):
+                nbre_de_S =+ 1
+    return tot - nbre_de_S
+
+#La Profondeur est proportionnel au temps passé dans l'expérience
+#La Largeur est difficillement représentable dans cette simulation 
+
+
+test = partage_tour(10,reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
+plot_world(test)
