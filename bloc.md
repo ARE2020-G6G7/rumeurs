@@ -60,7 +60,7 @@ Il est important de preciser qu'au debut de la simulation tout les individus son
 
 
 ### Semaine 6
-Après s'être aperçu que la simulation basée sur l'étude précédente donnait non seulement des valeurs négatives pour les catégories d'induvidus mais aussi sortait des limites du réseau, nous avons décidé de revoir notre code.
+Après s'être aperçu que la simulation basée sur l'étude précédente donnait non seulement des valeurs négatives pour les catégories d'individus mais aussi sortait des limites du réseau, nous avons décidé de revoir notre code.
 
 On considérera que tous les individus interagissent entre eux et qu'ils appartiennent à la catégorie S des personnes susceptibles à la rumeur. 
 
@@ -70,6 +70,11 @@ En ce qui concerne la fonction h, elle va servir de seuil de cohérence. On va c
 
 Ainsi, on revient aux objectifs initiaux qui étaient de déteminer les constantes de propagation, que l'on fixera arbitrairement selon les types d'informations.
 
+
+### Semaine 7
+Le modèle Alternatif étant finalisé, on se focalise sur les tests pour voir comment le modèle évolue en fonction des paramètres φ, μ, γ, θ1 et θ2.
+
+Pour cela, on va utiliser les différentes études sur la propagation des rumeurs sur un reseau social et les comparer avec les résultats que l'on obtient selon que l'information soit vérifié ou que la rumeur semble très plausible ou peu plausible...
 
 
 
