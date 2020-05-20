@@ -12,11 +12,11 @@ reseau_social = [[3,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,
 #On considère une rumeur politique, très relayée dans les réseaux sociaux selon nos recherches et expériences personnelles
 
 #Taux transmission rumeur
-Phi = 0.4
+Phi = 0.2
 #Proba de changer de rôle
-Micro = 0.5
+Micro = 0.2
 #Proba transition I/A->R(remise en question)
-Gamma = 0.3
+Gamma = 0.1
 #Proba transition S->A
 Teta1 = 0.2
 #Proba transition S->I
@@ -66,14 +66,14 @@ def choix(Teta1,Teta2):
         1>Teta1>0 and 1>Teta2>0
         retourne 2,3 ou 4 en fonction des probas Teta1 et Teta2 , suite à un choix aléatoire  """
     #T1 : int
-    T1 = Teta1* 10
+    T1 = Teta1*10 - 1
     #T2 : int
     T2 = Teta2*10 + T1
     Choix = np.random.choice(10,1,0.1)
-    if Choix[0]<T1:
-        return 3
-    if Choix[0]>=T1 and Choix[0]<T2:
+    if Choix[0]<=T1:
         return 2
+    if Choix[0]>T1 and Choix[0]<=T2:
+        return 3
     else:
         return 4
 
@@ -153,5 +153,5 @@ def Taille(reseau):
 #La Largeur est difficillement représentable dans cette simulation
 
 
-test = partage_tour(10,reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
-plot_world(test)
+test= partage_tour(10, reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
+print(test)
