@@ -30,7 +30,7 @@ Teta2 =0.7
 #Visulisation du réseau social
 def plot_world(world):
     """list[list[int]]->Image
-    retourne le monde."""
+    retourne un modèle graphique du monde"""
     A = world
     plt.figure(figsize=(15,12)) # (30,30) = Taille de la figure
     plt.imshow(A,cmap='viridis')
@@ -62,6 +62,9 @@ def fonction_h(reseau,biais):
         return False
 #FAIRE UNE FONCTION QUI MANIPULE L'ALEATOIRE ET QUI RETOURNE SOIT 2 3 OU 4 SELON LE CHIFFRE QUI TOMBE ET LES PROBAS TETA1 et TETA2
 def choix(Teta1,Teta2):
+    """ int**2 -> int
+        1>Teta1>0 and 1>Teta2>0
+        retourne 2,3 ou 4 en fonction des probas Teta1 et Teta2 , suite à un choix aléatoire  """
     #T1 : int
     T1 = Teta1* 10
     #T2 : int
@@ -81,27 +84,38 @@ def partage(reseau,phi,micro,gamma,Teta1,Teta2):
         retourne le monde après une periode t de partage de la rumeur """
     #LR : list[list[int]]
     LR = []
+    #Ligne : int
     for Ligne in range(0,6):
         LR.append([])
+        #L1 : list[int]
         L1 = LR[Ligne]
+        #L2 : list[int]
         L2 = reseau[Ligne]
+        #Colonne : int
         for Colonne in range(0,6):
             L1.append(L2[Colonne])
             if L2[Colonne]==1:
+                #L_phi : list[int]
                 L_phi = np.random.choice(2,1,phi)
                 if(L_phi[0]==1):
+                    #h : bool
                     h = fonction_h(reseau,0.5)
+                    #L_micro : list[int]
                     L_micro = np.random.choice(2,1,micro)
                     if L_micro[0]==1 or h==True:
                         L1[Colonne]=choix(Teta1,Teta2)
             else:
                 if (L2[Colonne]==2 or L2[Colonne]==3) and Ligne+Colonne!=0:
+                    #L_gamma : list[int]
                     L_gamma = np.random.choice(2,1,gamma)
                     if(L_gamma[0]==1):
                         L1[Colonne]=4
     return LR
 
 def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
+    """int*list[list[int]]*float**6 -> list[list[int]]
+        nbre_tour>=1 and 0<phi<1 and 0<micro<1 and 0<gamma<1 and 0<Teta1<1 and 0<Teta2<1
+        retourne l'état du réseau après plusieurs tours de simulations """
     #twitter : list[list[int]]
     twitter = copy.copy(reseau)
     #i : int
@@ -110,9 +124,13 @@ def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
     return twitter
 
 def Viralite(reseau):
+    """ list[list[int]]-> int
+        retourne un indice pour déterminer la viralité de la rumeur dans le réseau social """
     nbre_de_S = 0
     tot = 0
+    #L: list[int]
     for L in reseau:
+        #i : int
         for i in L:
             tot =+ 1
             if(L[i]==1):
@@ -122,7 +140,9 @@ def Viralite(reseau):
 def Taille(reseau):
     nbre_de_S = 0
     tot = 0
+    #L : list[int]
     for L in reseau:
+        #i : int
         for i in L:
             tot =+ 1
             if(L[i]==1):
@@ -130,7 +150,7 @@ def Taille(reseau):
     return tot - nbre_de_S
 
 #La Profondeur est proportionnel au temps passé dans l'expérience
-#La Largeur est difficillement représentable dans cette simulation 
+#La Largeur est difficillement représentable dans cette simulation
 
 
 test = partage_tour(10,reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
