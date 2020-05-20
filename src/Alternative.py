@@ -1,4 +1,4 @@
-import random
+from random import *
 from matplotlib import pyplot as plt
 import numpy as np
 import copy
@@ -16,7 +16,7 @@ Phi = 0.2
 #Proba de changer de rôle
 Micro = 0.2
 #Proba transition I/A->R(remise en question)
-Gamma = 0.1
+Gamma = 0.005
 #Proba transition S->A
 Teta1 = 0.2
 #Proba transition S->I
@@ -66,13 +66,13 @@ def choix(Teta1,Teta2):
         1>Teta1>0 and 1>Teta2>0
         retourne 2,3 ou 4 en fonction des probas Teta1 et Teta2 , suite à un choix aléatoire  """
     #T1 : int
-    T1 = Teta1*10 - 1
+    T1 = Teta1
     #T2 : int
-    T2 = Teta2*10 + T1
-    Choix = np.random.choice(10,1,0.1)
-    if Choix[0]<=T1:
+    T2 = Teta2 + T1
+    Choix = random()
+    if Choix<=T1:
         return 2
-    if Choix[0]>T1 and Choix[0]<=T2:
+    if Choix>T1 and Choix<=T2:
         return 3
     else:
         return 4
@@ -96,19 +96,19 @@ def partage(reseau,phi,micro,gamma,Teta1,Teta2):
             L1.append(L2[Colonne])
             if L2[Colonne]==1:
                 #L_phi : list[int]
-                L_phi = np.random.choice(2,1,phi)
-                if(L_phi[0]==1):
+                L_phi = random()
+                if(L_phi<=phi):
                     #h : bool
                     h = fonction_h(reseau,0.5)
                     #L_micro : list[int]
-                    L_micro = np.random.choice(2,1,micro)
-                    if L_micro[0]==1 or h==True:
+                    L_micro = random()
+                    if L_micro<=micro or h==True:
                         L1[Colonne]=choix(Teta1,Teta2)
             else:
                 if (L2[Colonne]==2 or L2[Colonne]==3) and Ligne+Colonne!=0:
                     #L_gamma : list[int]
-                    L_gamma = np.random.choice(2,1,gamma)
-                    if(L_gamma[0]==1):
+                    L_gamma = random()
+                    if(L_gamma<=gamma):
                         L1[Colonne]=4
     return LR
 
@@ -153,5 +153,5 @@ def Taille(reseau):
 #La Largeur est difficillement représentable dans cette simulation
 
 
-test= partage_tour(10, reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
-print(test)
+test = partage_tour(50,reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
+plot_world(test)
