@@ -3,13 +3,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 import copy
 
-# Pour modéliser la propagation de rumeurs sur un réseau social, on considère un monde composé d'individus réceptives à la rumeurs, dites S.
-# Le chiffre 1 correspond à une personne S, tous les individus sont de type S au tout début
-
 #Quand t=0, S et I > 0, A = R = 0
 reseau_social = [[3,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1],[1,1,1,1,1,1]]
-
-#On considère une rumeur politique, très relayée dans les réseaux sociaux selon nos recherches et expériences personnelles
 
 #Taux transmission rumeur
 Phi = 0.2
@@ -22,10 +17,6 @@ Teta1 = 0.2
 #Proba transition S->I
 Teta2 =0.7
 
-#S = individu Susceptible, confronté à la rumeur, représenté par 1 dans le réseau social
-#A = Individu croyant/ne partangeant pas la rumeur, représenté par 2 dans le réseau social
-#I = Individu croyant/partageant la rumeur, représenté par un 3 dans le réseau social
-#R = Individu non-Croyant/ne partageant pas la rumeur, représenté par 4 dans le réseau social
 
 #Visulisation du réseau social
 def plot_world(world):
@@ -144,14 +135,14 @@ def Taille(reseau):
     for L in reseau:
         #i : int
         for i in L:
-            tot =+ 1
+            tot = tot + 1
             if(L[i]==1):
-                nbre_de_S =+ 1
+                nbre_de_S = nbre_de_S + 1
     return tot - nbre_de_S
 
 #La Profondeur est proportionnel au temps passé dans l'expérience
 #La Largeur est difficillement représentable dans cette simulation
 
 
-test = partage_tour(50,reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
-plot_world(test)
+test = partage_tour(1,reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
+print(Taille(test))

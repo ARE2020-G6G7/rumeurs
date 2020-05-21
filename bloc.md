@@ -1,4 +1,4 @@
-## Travail effectué 
+## Travail effectué
 
 => Description hebdomadaire du travail effectué (variez les auteurs !)
 
@@ -10,17 +10,17 @@ Pour répondre au feedback laissé suite à la remise de la présentation du pro
 
 - Nous comptions nous fier sur les études et données envoyées dans le "carnet de bord", qui contient différentes infographies et statisques permettant de dresser et définir certains coefficient et chiffres intéressants pour notre étude. Elle se focalisera du coup sur un seul réseau social dans le quel on considère un groupe d'individus se partageant des tweets, des informations,etc...  
 Afin de déterminer le coefficient de propagation, nous nous intéressons à trois paramètres: la rationalité des fake news, la situation actuelle et la crédulité du public concerné. Certains d'entre eux sont extraits d'articles scientifiques publiés par des chercheurs du MIT:
- https://science.sciencemag.org/content/359/6380/1146. 
+ https://science.sciencemag.org/content/359/6380/1146.
 Ce sont des paramètres que  l'on fixe au début de la simultation et qui tendent à évoluer au fur à mesure du phénomène.
 
-- En effet, les objectifs et la démarche ne cohèrent pas avec les objectifs de l'UE. Nos recherches doivent mener à la determination de coefficient de propagation en fonction de différents facteurs afin de dresser ces simulations. 
+- En effet, les objectifs et la démarche ne cohèrent pas avec les objectifs de l'UE. Nos recherches doivent mener à la determination de coefficient de propagation en fonction de différents facteurs afin de dresser ces simulations.
 
 ### Semaine 2
 Le papier scientifique publié par les chercheurs du MIT (B) se revèle être très enrichissant et interessant pour notre projet, notamment quant à la quantification des caractéristiques d'une rumeur. On se place ici dans le réseau social Twitter pour le contexte.
 
 En particulier, l'étude a classé et catégorisé les centres d'intérêt qui ont généré le plus d'interaction et de communication avec des Fake News. La politique et les légendes urbaines sont les thèmes impliqués dans ces rumeurs et se propagent à plus de gens en moins de temps. En effet, démystifier ces nouvelles n'est pas si facile, car elle doit être prudente face à de multiples sources, notamment pour la politique (si elle existe).
 
-Aussi, le papier décrit le terme de "Rumor Cascades" qui correspond au parcours de la rumeur, de sa création/publication jusqu'au momne toù elle n'est pas plus propagée, en passant par un long processus de (re)partage entre utilisateurs. 
+Aussi, le papier décrit le terme de "Rumor Cascades" qui correspond au parcours de la rumeur, de sa création/publication jusqu'au momne toù elle n'est pas plus propagée, en passant par un long processus de (re)partage entre utilisateurs.
 
 Ce phénomène se caractérise par 4 paramètres : Depth/Profondeur (La taille de l'enchainement des retweets/partages, appelé "node" dans le papier,  par des individus uniques), Size/Taille (le nombre total de personnes qui auront recu au moins une fois la nouvelle sur leur fil d'actualité), Breadth/Largeur (le nombre de node de la meme profondeur) et la viralité.
 
@@ -28,13 +28,13 @@ Ce phénomène se caractérise par 4 paramètres : Depth/Profondeur (La taille d
 https://www-sciencedirect-com.accesdistant.sorbonne-universite.fr/science/article/pii/S0020025520302565?#sec0008
 Un autre papier scientifique a attiré notre attention. Il présente un modèl de réseau social et de propagation de fake news basés autour de différentes équations et utilise notamment des notions plus complexes comme la théorie des bifurcations, la bifurcation  de Hopf...
 Ce qui est intéressant ici, c'est le réseau social et les personnes qui l'utilisent.
-L'étude catégorise les personnes recepetives aux rumeurs (S) sous 3 statuts : 
+L'étude catégorise les personnes recepetives aux rumeurs (S) sous 3 statuts :
 - Les personnes inintéressées par la rumeur, qui n'y croient pas et ne la (re)partagent pas (R)
 - Les personnes concernées par la rumeur, ils croient en la rumeur et repartagent celle-ci (I)
 - Les personnes croyants en la rumeur mais qui ne la partage pas (A)
 
 Ces statuts sont amenés à changer au fur et à mesure de la simulation
-Ce sont des vecteurs de l'informations. 
+Ce sont des vecteurs de l'informations.
 Notre réseau social sera constitué de N personnes et l'ensembles des individus I,S,R et A constitutent ce réseau. Au début de la simulation leur nombre est supérieur ou égal à 0.  
 
 Aussi, nous avons trouver des formules intéressantes à mettre en place pour nos simulations, qui font appel à différentes equations différentielles et à des taux de chance de propagation.
@@ -62,36 +62,19 @@ Il est important de preciser qu'au debut de la simulation tout les individus son
 ### Semaine 6
 Après s'être aperçu que la simulation basée sur l'étude précédente donnait non seulement des valeurs négatives pour les catégories d'individus mais aussi sortait des limites du réseau, nous avons décidé de revoir notre code.
 
-On considérera que tous les individus interagissent entre eux et qu'ils appartiennent à la catégorie S des personnes susceptibles à la rumeur. 
+On considérera que tous les individus interagissent entre eux et qu'ils appartiennent à la catégorie S des personnes susceptibles à la rumeur.
 
 En utilisant les différentes variables, constantes, probabilités à notre disposition et en faisant appel à random, on va parcourir une matrice avec une probabilité φ qu'une personne perçoive la rumeur. Ensuite, l'individu aura une probabilité μ de changer de rôle. Enfin, on prend en compte les probas θ1, θ2 et 1-θ1-θ2 pour determiner vers quel rôle il va transiter.
 
 En ce qui concerne la fonction h, elle va servir de seuil de cohérence. On va considérer le voisinage de l'individu, s'il y a plus de la moitié de son entourage qui est de type R ou A, il devient R, sinon I.
 
-Ainsi, on revient aux objectifs initiaux qui étaient de déteminer les constantes de propagation, que l'on fixera arbitrairement selon les types d'informations.
+Ainsi, on revient aux objectifs initiaux qui étaient de déterminer les constantes de propagation, que l'on fixera arbitrairement selon les types d'informations.
 
 
 ### Semaine 7
 Le modèle Alternatif étant finalisé, on se focalise sur les tests pour voir comment le modèle évolue en fonction des paramètres φ, μ, γ, θ1 et θ2.
 
 Pour cela, on va utiliser les différentes études sur la propagation des rumeurs sur un reseau social et les comparer avec les résultats que l'on obtient selon que l'information soit vérifié ou que la rumeur semble très plausible ou peu plausible...
-
-Tout d'abord nous avons commencé notre simulation sur un groupe de 36 personnes avec comme credibilite d'information:
-
--Très plausible avec φ=0.2, μ=0.2, γ=0.005, θ1=0.2, θ2=0.7, la simulation nous a donné S=3, R=8, I=15, A=10.
-Avec une information qui parait tres plausible nous pouvons voir que le nombre de personnes qui y croit est de 25, parmis ces 25 personnes là seulement 15 personnes y croit et la repartage et enfin 8 personnes n'y croient pas et ne la partage pas.
-
--Peu plausible avec φ=1, μ=0.5, γ=0.005, θ1=0.1, θ2=0.8, la simulation nous a donné S=3, R=5, I=28, A=0.
-Avec une information qui parait peu reele voire impossible, nous pouvons voir que le nombre de personnes qui y croit est de 28 et parmis eux 28 la repartage, seulement 5 personnes n'y croit pas...
-
--Information Confirmée avec φ=0.5, μ=0.8, γ=0.005, θ1=0.7, θ2=0.1, la simulation nous a donné S=5, R=8, I=3, A=20.
-Avec une information confirmée 23 personnes y croit mais parmis ces 23 personnes là seulement 3 la repartage, 8 personnes n'y croit toujour pas.
-
-Grâce à la simulation de 3 situations différentes, nous avons pu observer que les informations vraies et confirmées auront tendance à être crues, mais ne seront partagées que par quelques personnes. Au contraire une information peu plausible et qui parait peu imaginable est beaucoup crues et surtout enormement repartagé par les personnes qui y croit, une information tres plausible mais pas verifiéee est quant à elle beaucoup cru aussi mais seulement un peu plus de la moitie la repartage.
-
-Les gens ont tendance à croire les informations sur Internet, mais plus l'authenticité et la confirmation des informations sont fortes, moins elle ne sera repartage. C'est ainsi que les fake news se propagent de plus en plus vite et affectent de nombreuses personnes.
-
-
 
 
 <a href="index.html"> Retour à la page principale </a>

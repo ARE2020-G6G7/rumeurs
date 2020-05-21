@@ -27,7 +27,7 @@ Our project is to study the spreading of fake news, fin the factor that helps th
 **Hypothèses secondaires :**La déconstruction et le debunkage ne sont pas assez efficaces ou appliqués à toutes les fake news
 
 
-**Objectifs :**Expliquer la domination de la rumeur sur la vérité et refléchir à des pistes d'endiguement des fake news. 
+**Objectifs :**Expliquer la domination de la rumeur sur la vérité et refléchir à des pistes d'endiguement des fake news.
 
 **Critère(s) d'évaluation :**Comparer la propagation de la vérité et de la rumeur, jusqu'à son debunkage.
 
@@ -35,60 +35,53 @@ Our project is to study the spreading of fake news, fin the factor that helps th
 
 Présentation du choix de modélisation, des outils, du code et des résultats (tableaux, courbes, animations...) (**avec une analyse critique**).
 
-En ligne, les individus peuvent être divisés en plusieurs catégories :
-N(t) : Ensemble des individus
-S(t) : Ensemble des individus confrontés aux rumeurs
-A(t) : Ensemble des individus croyants à la rumeur mais ne la partageant pas
-I(t) : Ensemble des individus croyants à la rumeur et la partageant
-R(t) : Ensemble des individus ne croyants pas à la rumeur et qui ne la partagent pas
+Afin de modéliser la propagation d'une rumeur, nous nous sommes inspirés du modèle SAIR, un modèle compartimental en épidemiologie, que l'étude chinoise a avancé sur son papier.
+On considère un monde composé d'individus réceptives à la rumeurs, dites S. Le réseau social se catégorise en 4 individus :
+S = individu Susceptible, confronté à la rumeur, représenté par 1 dans le réseau social
+A = Individu croyant/ne partangeant pas la rumeur, représenté par 2 dans le réseau social
+I = Individu croyant/partageant la rumeur, représenté par un 3 dans le réseau social
+R = Individu non-Croyant/ne partageant pas la rumeur, représenté par 4 dans le réseau social
+Quand t=0, S et I > 0, A = R = 0
 
-En ligne, la propagation d’une rumeur est très rapide. C’est pourquoi nous pouvant dire que son évolution est constante. N (t) Deviens donc B, qui est appelé « constante d’immigration ». B est également le nombre de personne susceptible de rencontrer une rumeur, car dans notre cas tout le monde l’est. Leur émigration en fonction du temps est représentée par μ, et le taux de transmissions entre individus susceptible est représenté par φ.
-θ1   représente la proportion des individus susceptible aux individus indiffèrent.
-θ2  représente la proportion des individus susceptible aux individus indiffèrent.
-Y est la proportion des individus des individus indiffèrent et des individus qui propagent les rumeurs qui se remettent en question et qui jugent l’information.
-Certains individus doivent garder le silence sur certaines informations, ce qui les forcent à croire l’information mais à ne pas la partager. Les individus qui propagent les rumeurs baisses donc par le facteur h(I) (par unité de temps).
-Représente la fonction des gens qui sont forcer de garder le silence.
+L'étude décrivait diverses paramètres et variables de la simulation servant à recréer une situation et différentes types d'information.
+- La probabilité d'être confronté à une rumeur (B)
+- Le taux de transmission de la rumeur (φ)
+- La probabilite de changer de rôle (μ)
+- Le taux de chance d'une transition I/A vers R (γ)
+- Le taux de chance d'une transition S vers A (θ1)
+- Le taux de chance d'une transition S vers I (θ2)
+- Le taux de chance d'une transition S vers R (1-θ1-θ2)
+- Le seuil de cohérence de la rumeur (h) qui est un booléen
+Mise à part h, tous les paramètres sont des flottants compris dans l'intervalle entre 0 et 1 non inclus
 
+A la base, nous voulions respecter jusqu'au bout le modèle de l'étude qui présentait notamment diverses équations différentielles, des formules, théroèmes,etc...
+Mais notre niveau de et de connaissances et de compréhension n'étant pas assez haut pour saisir l'étude et ses enjeux, et par soucis de simplification du modèle (afin de coder par la suite), nous avons pris une autre direction et chercher un modèle plus clair et visuel pour nous.
 
-Ce graphique représente la propagation d’une rumeur en fonction du type d’individus et des formules vu auparavant.
+Nous partons d'un monde de la forme d'une matrice 6x6 (pour 36 personnes), constitué uniquement d'individus S, sauf un qui sera de type I et qui déclenchera la propagation.
+Le programme parcourt la matrice Ligne par Ligne puis Colonne par Colonne et identifie le type de l'individu pointé.
 
+Si il est de type S, il y a une probabilité φ de recevoir l'information. φ va déterminer la rapidité de la simulation, plus φ est proche de 1 plus l'info sera partagé et atteindra plus facilement les individus S du réseau
+Si il y a réception de l'information et que l'individu analysé et de type S , il y a une probabilité μ de changer de rôle, cela dépend de la viralité et de la popularité  de l'information, si elle suscite beaucoup d'intérêt dans la réseau social ou pas, ce qui va déterminer si elle crée beaucoup d'engagements au sein du réseau. Si le changement n'a pas lieu, intervient aussi la fonction h, qui sert de seuil de cohérence/confirmation de la rumeur, peut transformer l'individu si elle retourne le booléen True.
+Enfin, selon les probas θ1 et θ2, l'individu S est transformé soit en A, en I ou en R.
 
-Représentation de la propagation d’une rumeur :
+Si l'individu est de type A ou I, il y'a une probabilité gamma que l'individu se remette en question et change complétement de rôle pour devenir de R ce qui a pour action de ralentir la propagation. C'est un paramètre très puissant qui peut vite chambouler une simulation, c'est pourquoi sa valeur sera maintenu en dessous de 0.1 dans les tests futurs.
 
-Représente le nombre d’individus susceptibles à une rumeur par unité de temps.
+La fonction partage retourne l'état du réseau après un tour de partage, une simple fonction partage_tour permet de visualiser l'évolution du réseau après plusieurs tours de simulations et de visualiser la tendance et la réaction des individus à un type d'information précis, sur court ou long terme.
 
-Représente le nombre d’individus indifférents à une rumeur par unité de temps.
+Tout d'abord nous avons commencé notre simulation sur un groupe de 36 personnes avec comme crédibilite d'information:
 
-Représente le nombre d’individus qui propagent une rumeur par unité de temps.
-  
-Représente le nombre de personne qui remettent en question la rumeur.
+-Très plausible avec φ=0.2, μ=0.2, γ=0.005, θ1=0.2, θ2=0.7, la simulation nous a donné S=3, R=8, I=15, A=10.
+Avec une information qui parait tres plausible nous pouvons voir que le nombre de personnes qui y croit est de 25, parmis ces 25 personnes là seulement 15 personnes y croit et la repartage et enfin 8 personnes n'y croient pas et ne la partage pas.
 
+-Peu plausible avec φ=1, μ=0.5, γ=0.005, θ1=0.1, θ2=0.8, la simulation nous a donné S=3, R=5, I=28, A=0.
+Avec une information qui parait peu reele voire impossible, nous pouvons voir que le nombre de personnes qui y croit est de 28 et parmis eux 28 la repartage, seulement 5 personnes n'y croit pas...
 
- 
-Les conditions initiales sont donc :
+-Information Confirmée avec φ=0.5, μ=0.8, γ=0.005, θ1=0.7, θ2=0.1, la simulation nous a donné S=5, R=8, I=3, A=20.
+Avec une information confirmée 23 personnes y croit mais parmis ces 23 personnes là seulement 3 la repartage, 8 personnes n'y croit toujour pas.
 
- 
-Le nombre total d’individus est donc représenté par N(t) :
+Grâce à la simulation de 3 situations différentes, nous avons pu observer que les informations vraies et confirmées auront tendance à être crues, mais ne seront partagées que par quelques personnes. Au contraire une information peu plausible et qui parait peu imaginable est beaucoup crues et surtout enormement repartagé par les personnes qui y croit, une information tres plausible mais pas verifiéee est quant à elle beaucoup cru aussi mais seulement un peu plus de la moitie la repartage.
 
- 
-
-Les formules qui viennent avec :
-	
- 
- 
- 
- 
-The positive variant set of system (?) :
-
- 
-
-Comme A(t) et R(t) sont indépendants des équa diff de S(t) et I(t), nous pouvons donc changer ce systeme en :
-
- 
-
-Avec  
-
-
+Les gens ont tendance à croire les informations sur Internet, mais plus l'authenticité et la confirmation des informations sont fortes, moins elle ne sera repartage. C'est ainsi que les fake news se propagent de plus en plus vite et affectent de nombreuses personnes.
 ## Lien vers page de blog : <a href="blog.html"> C'est ici ! </a>
 
 ## Bibliographie :
@@ -104,7 +97,6 @@ M. Alcaraz “Pourquoi les fake news se propagent bien plus vite“, les Echos, 
 C.Asselin, «Fake News : 8 points importants à connaître pour les comprendre et les combattre https://blog.digimind.com/fr/tendances/fake-news-8-points_importants-comprendre-combattre
 [Consulté le: 29/03/2020]
 
-**Carte mentale de vos mots-clés, en utilisant** <a href="https://framindmap.org/mindmaps/index.html">Framindmap </a> 
+**Carte mentale de vos mots-clés, en utilisant** <a href="https://framindmap.org/mindmaps/index.html">Framindmap </a>
 
 Liste de l'ensemble des ressources bibliographiques utilisées pour vos travaux. **Voir la bibliographie, les 2 papiers scientifiques ont été trouvé grâce au moteur de recherche de SUper Sorbonne, les autres grâce à Google **
-
