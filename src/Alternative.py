@@ -117,18 +117,7 @@ def partage_tour(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
 def Viralite(reseau):
     """ list[list[int]]-> Number
         retourne un indice pour déterminer la viralité de la rumeur dans le réseau social """
-    # nbre_de_S: int
-    nbre_de_S = 0
-    # tot: int
-    tot = 0
-    #L: list[int]
-    for L in reseau:
-        #i : int
-        for i in L:
-            tot =+ 1
-            if(L[i]==1):
-                nbre_de_S =+ 1
-    return (tot - nbre_de_S)/tot
+    return (36 - Taille_de_S(reseau))/36
 
 def Taille(reseau):
     """list[list[int]]->int
@@ -140,12 +129,7 @@ def Taille(reseau):
     tot = 0
     #L : list[int]
     for L in reseau:
-        #i : int
-<<<<<<< HEAD
-        for i in L:
-=======
         for i in range(0, len(L)):
->>>>>>> 1ac753e9e453147625beced8793414c7956b216e
             tot = tot + 1
             if(L[i]==1):
                 nbre_de_S = nbre_de_S + 1
@@ -153,6 +137,19 @@ def Taille(reseau):
 
 #La Profondeur est proportionnel au temps passé dans l'expérience
 #La Largeur est difficillement représentable dans cette simulation
+
+def Taille_de_S(reseau):
+    """list[list[int]]->int
+    retourne la taille des personnes A croyant mais ne partageant pas la rumeur."""
+    # nbre_de_A: int
+    nbre_de_S = 0
+    # L: list[int]
+    for L in reseau:
+        # i: int
+        for i in range(0, len(L)):
+            if(L[i]==1):
+                nbre_de_S = nbre_de_S + 1
+    return nbre_de_S
 
 def Taille_de_A(reseau):
     """list[list[int]]->int
@@ -220,7 +217,6 @@ def graphe(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
     V = []
     V.append(Viralite(twitter))
     L.append(0)
-    
     #i : int
     for i in range(0,nbre_tour):
         twitter = partage(twitter, phi, micro, gamma, Teta1, Teta2)
@@ -231,7 +227,6 @@ def graphe(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
         R.append(Taille_de_R(twitter))
         L.append(i + 1)
         V.append(Viralite(twitter))
-
     plt.plot(L, T, label="Individus touchés par la rumeur (A + I + R)")
     plt.plot(L, S, label="Individus S susceptible à la rumeur")
     plt.plot(L, A, label="Individus A croyant mais ne partageant pas la rumeur")
@@ -243,14 +238,14 @@ def graphe(nbre_tour, reseau, phi,micro,gamma,Teta1,Teta2):
     plt.grid()
     plt.legend()
     plt.show()
-    
+
     plt.plot(L, V)
     plt.title('Evolution de la viralite en fonction du nombre de tour')
     plt.xlabel('Nombre de tour')
     plt.ylabel('Viralite')
     plt.grid()
     plt.show()
-    
+
     return None
 
 def compare_reseau(nbre_tour, reseau1, reseau2, phi_1,micro_1,gamma_1,Teta1_1,Teta2_1, phi_2,micro_2,gamma_2,Teta1_2,Teta2_2):
@@ -281,7 +276,7 @@ def compare_reseau(nbre_tour, reseau1, reseau2, phi_1,micro_1,gamma_1,Teta1_1,Te
     # V1: list[int]
     V1 = []
     V1.append(Viralite(twitter1))
-    
+
     #i : int
     for i in range(0,nbre_tour):
         twitter1 = partage(twitter1, phi_1, micro_1, gamma_1, Teta1_1, Teta2_1)
@@ -292,7 +287,7 @@ def compare_reseau(nbre_tour, reseau1, reseau2, phi_1,micro_1,gamma_1,Teta1_1,Te
         R1.append(Taille_de_R(twitter1))
         L.append(i + 1)
         V1.append(Viralite(twitter1))
-    
+
     #twitter2 : list[list[int]]
     twitter2 = copy.copy(reseau2)
     # T2: list[int]
@@ -314,7 +309,7 @@ def compare_reseau(nbre_tour, reseau1, reseau2, phi_1,micro_1,gamma_1,Teta1_1,Te
     # V2: list[int]
     V2 = []
     V2.append(Viralite(twitter2))
-    
+
     #i : int
     for i in range(0,nbre_tour):
         twitter2 = partage(twitter2, phi_2, micro_2, gamma_2, Teta1_2, Teta2_2)
@@ -361,7 +356,7 @@ def compare_reseau(nbre_tour, reseau1, reseau2, phi_1,micro_1,gamma_1,Teta1_1,Te
     plt.grid()
     plt.legend()
     plt.show()
-    
+
     plt.plot(L, R1, label="Individus R ne croyant pas et ne partageant pas la rumeur (reseau1)")
     plt.plot(L, R2, label="Individus R ne croyant pas et ne partageant pas la rumeur (reseau2)")
     plt.title('Evolution personnes R ne croyant pas et ne partageant pas la rumeur en fonction du nombre de tour')
@@ -370,7 +365,7 @@ def compare_reseau(nbre_tour, reseau1, reseau2, phi_1,micro_1,gamma_1,Teta1_1,Te
     plt.grid()
     plt.legend()
     plt.show()
-    
+
     plt.plot(L, V1)
     plt.plot(L, V2)
     plt.title('Evolution de la viralite en fonction du nombre de tour')
@@ -378,16 +373,9 @@ def compare_reseau(nbre_tour, reseau1, reseau2, phi_1,micro_1,gamma_1,Teta1_1,Te
     plt.ylabel('Viralite')
     plt.grid()
     plt.show()
-    
+
     return None
 
-<<<<<<< HEAD
-test = partage_tour(1,reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
-print(Taille(test))
-=======
-test = partage_tour(50,reseau_social, Phi, Micro, Gamma, Teta1, Teta2)
-plot_world(test)
 
 graphe(10,reseau_social,0.2,0.2,0.005,0.2,0.7)
 compare_reseau(10, reseau_social, reseau_social, 0.2,0.2,0.005,0.2,0.7, 0.5,0.8,0.005,0.7,0.1)
->>>>>>> 1ac753e9e453147625beced8793414c7956b216e
