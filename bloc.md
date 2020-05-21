@@ -76,6 +76,22 @@ Le modèle Alternatif étant finalisé, on se focalise sur les tests pour voir c
 
 Pour cela, on va utiliser les différentes études sur la propagation des rumeurs sur un reseau social et les comparer avec les résultats que l'on obtient selon que l'information soit vérifié ou que la rumeur semble très plausible ou peu plausible...
 
+Tout d'abord nous avons commencé notre simulation sur un groupe de 36 personnes avec comme credibilite d'information:
+
+-Très plausible avec φ=0.2, μ=0.2, γ=0.005, θ1=0.2, θ2=0.7, la simulation nous a donné S=3, R=8, I=15, A=10.
+Avec une information qui parait tres plausible nous pouvons voir que le nombre de personnes qui y croit est de 25, parmis ces 25 personnes là seulement 15 personnes y croit et la repartage et enfin 8 personnes n'y croient pas et ne la partage pas.
+
+-Peu plausible avec φ=1, μ=0.5, γ=0.005, θ1=0.1, θ2=0.8, la simulation nous a donné S=3, R=5, I=28, A=0.
+Avec une information qui parait peu reele voire impossible, nous pouvons voir que le nombre de personnes qui y croit est de 28 et parmis eux 28 la repartage, seulement 5 personnes n'y croit pas...
+
+-Information Confirmée avec φ=0.5, μ=0.8, γ=0.005, θ1=0.7, θ2=0.1, la simulation nous a donné S=5, R=8, I=3, A=20.
+Avec une information confirmée 23 personnes y croit mais parmis ces 23 personnes là seulement 3 la repartage, 8 personnes n'y croit toujour pas.
+
+Grâce à la simulation de 3 situations différentes, nous avons pu observer que les informations vraies et confirmées auront tendance à être crues, mais ne seront partagées que par quelques personnes. Au contraire une information peu plausible et qui parait peu imaginable est beaucoup crues et surtout enormement repartagé par les personnes qui y croit, une information tres plausible mais pas verifiéee est quant à elle beaucoup cru aussi mais seulement un peu plus de la moitie la repartage.
+
+Les gens ont tendance à croire les informations sur Internet, mais plus l'authenticité et la confirmation des informations sont fortes, moins elle ne sera repartage. C'est ainsi que les fake news se propagent de plus en plus vite et affectent de nombreuses personnes.
+
+
 
 
 <a href="index.html"> Retour à la page principale </a>
