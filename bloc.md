@@ -76,5 +76,6 @@ Le modèle Alternatif étant finalisé, on se focalise sur les tests pour voir c
 
 Pour cela, on va utiliser les différentes études sur la propagation des rumeurs sur un reseau social et les comparer avec les résultats que l'on obtient selon que l'information soit vérifié ou que la rumeur semble très plausible ou peu plausible...
 
+Nous nous sommes aussi occupé de créer des graphiques afin de modéliser l'évolution de divers métriques tels que la taille des différents groupes d'individus (S,A,I,R) ou la viralité de la rumeur, qui viendront appuyer les simulaitons visuelles déjà faites. 
 
 <a href="index.html"> Retour à la page principale </a>

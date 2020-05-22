@@ -5,10 +5,10 @@ Les rumeurs sont largement diffusées par nos canaux d'information. Ce sont des 
  Nos projets de recherche documentaire comprennent l'étude de la propagation de fake news et des facteurs qui facilitent leur diffusion à grande échelle, comparées aux informations véridiques et vérifiées. En particulier, il est nécessaire de simuler un réseau social comme Twitter et de voir comment les informations sont transférées d'une personne à une autre.
 
 
-## Spreading of Fake-News sociaux
-Fake news are widely spread through multiple network, they are created by a group of person who aims to manipulate people's opinions and the reality, to the benefit of a lobby, an ideology,etc... They could be used by official journalists so they can write serious article for well known newspaper.
+## Spreading of Fake-News
+Fake news are widely spread through multiple network, they are created by a group of person who aims to manipulate people's opinions and the reality, to the benefit of a lobby, an ideology, etc... They could be used by official journalists so they can write serious article for well known newspaper.
 
-Our project is to study the spreading of fake news, fin the factor that helps the spread of those news, and compare it to the spreading of real official information. In paticular, we will simulate a social network such as Twitter to see how the information spread in between the ursers.
+Our project is to study the spreading of fake news, find the factor that helps the spread of those news, and compare it to the spreading of real official information. In particular, we will simulate a social network such as Twitter to see how the information spread in between the users.
 
 ## Présentation de l'équipe
 
@@ -60,11 +60,12 @@ Mais notre niveau de et de connaissances et de compréhension n'étant pas assez
 Nous partons d'un monde de la forme d'une matrice 6x6 (pour 36 personnes), constitué uniquement d'individus S, sauf un qui sera de type I et qui déclenchera la propagation.
 Le programme parcourt la matrice Ligne par Ligne puis Colonne par Colonne et identifie le type de l'individu pointé.
 
-Si il est de type S, il y a une probabilité φ de recevoir l'information. φ va déterminer la rapidité de la simulation, plus φ est proche de 1 plus l'info sera partagé et atteindra plus facilement les individus S du réseau
-Si il y a réception de l'information et que l'individu analysé et de type S , il y a une probabilité μ de changer de rôle, cela dépend de la viralité et de la popularité  de l'information, si elle suscite beaucoup d'intérêt dans la réseau social ou pas, ce qui va déterminer si elle crée beaucoup d'engagements au sein du réseau. Si le changement n'a pas lieu, intervient aussi la fonction h, qui sert de seuil de cohérence/confirmation de la rumeur, peut transformer l'individu si elle retourne le booléen True.
+Si il est de type S, il y a une probabilité φ de recevoir l'information. φ va déterminer la rapidité de la simulation, plus φ est proche de 1 plus l'info sera partagé et atteindra plus facilement les individus S du réseau.
+Si il y a réception de l'information et que l'individu analysé est de type S , il y a une probabilité μ de changer de rôle : cela dépend de la viralité et de la popularité du sujet que traite l'information, si elle suscite beaucoup d'intérêt dans la réseau social ou pas, ce qui va déterminer si elle crée beaucoup d'engagements au sein du réseau. Si le changement n'a pas lieu, intervient aussi la fonction h, qui sert de seuil de cohérence/confirmation de la rumeu et, peut transformer l'individu si elle retourne le booléen True.
+
 Enfin, selon les probas θ1 et θ2, l'individu S est transformé soit en A, en I ou en R.
 
-Si l'individu est de type A ou I, il y'a une probabilité gamma que l'individu se remette en question et change complétement de rôle pour devenir de R ce qui a pour action de ralentir la propagation. C'est un paramètre très puissant qui peut vite chambouler une simulation, c'est pourquoi sa valeur sera maintenu en dessous de 0.1 dans les tests futurs.
+Si l'individu est de type A ou I, il y'a une probabilité gamma que l'individu se remette en question et change complétement de rôle pour devenir de R ce qui a pour action de ralentir la propagation. C'est un paramètre très puissant qui peut vite corrompre les résultats d'une simulation, c'est pourquoi sa valeur sera maintenu en dessous de 0.1 dans les tests futurs.
 
 La fonction partage retourne l'état du réseau après un tour de partage, une simple fonction partage_tour permet de visualiser l'évolution du réseau après plusieurs tours de simulations et de visualiser la tendance et la réaction des individus à un type d'information précis, sur court ou long terme.
 
